@@ -16,3 +16,28 @@
   user-select: none;
 }
 
+.title {
+  font-size: 80px;
+}
+
+.pseudoGlitch {
+  position: relative;
+  color: #00ff99;
+
+}
+
+.pseudoGlitch::before,
+.pseudoGlitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  clip-path: var(--clip);
+  animation: glitch-anim 2s infinite ease-in-out alternate;
+}
+
+@keyframes glitch-anim {
+  0%, 10%, 100% { --clip: rect(0px, 9999px, 0px, 0px); }
+  50% { --clip: rect(10px, 9999px, 25px, 0); transform: translate(2px, -2px); }
+}
+

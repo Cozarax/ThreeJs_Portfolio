@@ -5,6 +5,11 @@ import Text from './components/Text3D.tsx';
 import Lights from './components/lights/Lights.tsx';
 import CrtIndex from './components/CrtMonitor/Index.tsx';
 import CameraTrackerOverlay from './components/Camera/CameraTracker.tsx';
+// import DeviceSite from './components/importLucas.tsx';
+// import IssTracker from './components/IssTracker/index.tsx';
+import  GlobeWithISS  from './components/IssTracker/index.tsx';
+// import GlobeDisplay from './components/IssTracker/r3fGlobe.jsx';
+// import GlobeOnly from './components/IssTracker/GlobeOnly.jsx';
 
 const Ground = () => {
   return (
@@ -20,7 +25,11 @@ function App() {
     <>
       <Canvas
         shadows
-        camera={{ position: [-0.263, 0.891, 6], fov: 50 }}
+        camera={{
+          position: [-0.263, 0.891, 6],
+
+          fov: 50
+        }}
         onCreated={({ camera, scene }) => {
           scene.fog = new THREE.Fog('black', 1, 100);
           camera.lookAt(0, 0, 0);
@@ -33,11 +42,18 @@ function App() {
           <meshStandardMaterial color="white" metalness={0.3} roughness={0.7} />
         </mesh>
         <Lights />
+        {/* <DeviceSite/> */}
         <CrtIndex />
         <Text />
         <Ground />
+        {/* <IssTracker/> */}
+        <GlobeWithISS
+        position={[-10, 0.5, 0]}
+        />
+        {/* <GlobeOnly /> */}
+        {/* <Earth /> */}
         <OrbitControls
-          target={[0, 0.4, 0]}
+          target={[-10, 0.5, 0]}
           makeDefault
           enableDamping
           dampingFactor={0.1}

@@ -19,7 +19,7 @@ export default function RetroComputer() {
         mesh.receiveShadow = true;
       }
     });
-
+    
     // console.log('➡️ Tous les nodes :', nodes);
   }, [nodes, scene]);
 
